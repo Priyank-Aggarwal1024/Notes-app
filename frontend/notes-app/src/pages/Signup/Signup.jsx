@@ -38,7 +38,7 @@ function Signup() {
             // Handle Successful login response
             if (response.data && response.data.accessToken) {
                 localStorage.setItem("token", response.data.accessToken);
-                navigate("/dashboard");
+                navigate("/");
             }
         } catch (err) {
             if (err.response && err.response.data && err.response.data.message) {
