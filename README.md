@@ -1,4 +1,5 @@
 Notes App
+
 This project is a simple Notes Application built with Node.js for the backend and any frontend framework/library of your choice. It allows users to register, log in, and manage their notes with features like pinning, searching, and tagging.
 
 Features
