@@ -46,6 +46,7 @@ function Home() {
             const response = await axiosInstance.get("/get-user");
             if (response.data && response.data.user) {
                 setUserInfo(response.data.user);
+                return true;
             }
         } catch (err) {
             if (err.response.status === 401) {
@@ -112,6 +113,7 @@ function Home() {
                 setIsSeaarch(true)
                 setNotes(response.data.notes);
             }
+
         } catch (err) {
             if (err.response && err.response.data && err.response.data.message) {
                 console.log(err.response.data.message);
@@ -123,9 +125,8 @@ function Home() {
         getAllNotes();
     }
     useEffect(() => {
-        getAllNotes();
         getUserInfo();
-        console.log(notes)
+        getAllNotes();
         return () => { };
     }, [])
     return (

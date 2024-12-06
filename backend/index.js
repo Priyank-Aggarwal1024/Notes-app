@@ -1,8 +1,7 @@
 require("dotenv").config();
-const config = require("./config.json");
 const mongoose = require("mongoose");
-
-mongoose.connect(config.connectionString).then(data => {
+const { MONGO_URI, PORT } = process.env
+mongoose.connect(MONGO_URI).then(data => {
     console.log("DB Connection Successfully")
 }).catch(err => {
     console.log("DB Connection Failed");
@@ -299,6 +298,8 @@ app.get("/search-notes", authentticateToken, async (req, res) => {
         })
     }
 })
-app.listen(8000);
+app.listen(PORT, (req, res) => {
+    console.log("Server is starting on PORT = ", PORT)
+});
 
 module.exports = app;
